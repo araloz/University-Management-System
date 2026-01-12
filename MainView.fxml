@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="advancejavaproject4.MainViewController">
+
+    <!-- ================= TOP ================= -->
+    <top>
+        <VBox spacing="5" style="-fx-padding: 10;">
+            <Label fx:id="statusLabel" text="No DB connected"/>
+            <Button fx:id="connectButton"
+                    text="Connect"
+                    onAction="#handleConnect"/>
+        </VBox>
+    </top>
+
+    <!-- ================= LEFT ================= -->
+    <left>
+        <VBox spacing="5" style="-fx-padding: 10;">
+            <Label text="Tables"/>
+            <ListView fx:id="tableList"
+                      prefWidth="200"
+                      onMouseClicked="#handleTableSelected"/>
+        </VBox>
+    </left>
+
+    <!-- ================= CENTER ================= -->
+    <center>
+        <VBox spacing="10" style="-fx-padding: 10;">
+
+            <!-- Action buttons -->
+            <HBox spacing="10">
+                <Button fx:id="displayButton"
+                        text="Display Contents"
+                        onAction="#handleDisplayContents"/>
+
+                <Button fx:id="queryButton"
+                        text="Custom Query"
+                        onAction="#handleCustomQuery"/>
+            </HBox>
+
+            <!-- Main table -->
+            <TableView fx:id="tableView"
+                       VBox.vgrow="ALWAYS">
+                <placeholder>
+                    <Label text="No data to display"/>
+                </placeholder>
+            </TableView>
+
+        </VBox>
+    </center>
+
+    <!-- ================= BOTTOM (CRUD FORM) ================= -->
+    <bottom>
+        <VBox spacing="10" style="-fx-padding: 10;">
+
+            <Label text="Record Details"/>
+
+            <GridPane hgap="10" vgap="10">
+
+                <Label text="Field 1:"
+                       GridPane.rowIndex="0"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="field1"
+                           GridPane.rowIndex="0"
+                           GridPane.columnIndex="1"/>
+
+                <Label text="Field 2:"
+                       GridPane.rowIndex="1"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="field2"
+                           GridPane.rowIndex="1"
+                           GridPane.columnIndex="1"/>
+
+                <Label text="Field 3:"
+                       GridPane.rowIndex="2"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="field3"
+                           GridPane.rowIndex="2"
+                           GridPane.columnIndex="1"/>
+
+            </GridPane>
+
+            <HBox spacing="10">
+                <Button text="Add New"
+                        onAction="#handleAdd"/>
+
+                <Button text="Update Selected"
+                        onAction="#handleUpdate"/>
+
+                <Button text="Delete Selected"
+                        onAction="#handleDelete"/>
+            </HBox>
+
+        </VBox>
+    </bottom>
+
+</BorderPane>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="advancejavaproject4.QueryViewController"
+      spacing="10"
+      style="-fx-padding: 10;">
+
+    <Label text="Custom SQL Query"/>
+
+    <TextArea fx:id="queryTextArea"
+              promptText="Enter SQL query here..."
+              prefHeight="150"/>
+
+    <HBox spacing="10">
+        <Button text="Execute"
+                onAction="#handleExecute"/>
+        <Button text="Close"
+                onAction="#handleClose"/>
+    </HBox>
+
+    <Label fx:id="resultLabel" text=""/>
+
+    <TableView fx:id="resultTableView"
+               prefHeight="300"
+               VBox.vgrow="ALWAYS">
+        <placeholder>
+            <Label text="No results to display"/>
+        </placeholder>
+    </TableView>
+
+</VBox>
